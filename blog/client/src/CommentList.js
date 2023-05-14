@@ -11,8 +11,18 @@ export default ({ comments }) => {
     // useEffect(() => {
     //     fetchData();
     // }, []);
-    const renderComments = comments.map(comment => {
-        return <li key={comment.id}>{comment.content}</li>;
+    const renderComments = comments.map((comment) => {
+        let content;
+        if (comment.status === 'approved') {
+            content = comment.content
+        }
+        if (comment.status === 'pending') {
+            content = 'pending'
+        }
+        if (comment.status === 'rejected') {
+            content = 'has been rejected.'
+        }
+        return <li key={comment.id}>{content}</li>;
     });
     return <ul>
         {renderComments}
