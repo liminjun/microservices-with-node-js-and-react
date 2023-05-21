@@ -4,7 +4,7 @@ import axios from 'axios';
 export default ({ comments }) => {
     // const [comments, setComments] = useState([]);
     // const fetchData = async () => { 
-    //     const res = await axios.get(`http://localhost:4001/posts/${postId}/comments`);
+    //     const res = await axios.get(`http://posts.com:4001/posts/${postId}/comments`);
     //     setComments(res.data);
     // };
     

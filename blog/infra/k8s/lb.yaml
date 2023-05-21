@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kubernetes.digitalocean.com/load-balancer-id: a0d1af8b-486a-423e-af88-be66e52c9723
+  creationTimestamp: "2023-05-19T05:17:32Z"
+  finalizers:
+  - service.kubernetes.io/load-balancer-cleanup
+  labels:
+    app: my-posts-services
+  name: my-posts-services
+  namespace: default
+  resourceVersion: "4937"
+  uid: 1569714a-1ae0-4af3-9658-d9a7dbd7f545
+spec:
+  allocateLoadBalancerNodePorts: true
+  clusterIP: 10.245.6.53
+  clusterIPs:
+  - 10.245.6.53
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - nodePort: 30655
+    port: 4000
+    protocol: TCP
+    targetPort: 4000
+  selector:
+    app: my-posts-services
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - ip: 139.59.218.158
