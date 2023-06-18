@@ -27,7 +27,7 @@ app.use(errorHandler);
 const start = async () => {
   try {
     // 连在线上的mongoDB
-    await mongoose.connect("mongodb://auth-mongo-srv:27017/auth", {
+    await mongoose.connect("mongodb://localhost:27017/auth", {
     });
     console.log("Connected to MongoDB");
   } catch (err) {
@@ -39,4 +39,4 @@ app.listen(3000, () => {
   console.log("Listening on port 3000!");
 });
 
-//start();
+start();
