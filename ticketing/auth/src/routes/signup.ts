@@ -51,6 +51,9 @@ router.post('/api/users/signup',
             email: user.email
         }, 'asdf');
         // Store it on session object
+        req.session = {
+            jwt: userJwt
+        }
         res.status(201).send(user);
     }
 });
