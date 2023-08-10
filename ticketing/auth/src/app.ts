@@ -2,6 +2,7 @@ import express from "express";
 import "express-async-errors";
 import { json } from "body-parser";
 import cookieSession from "cookie-session";
+import cors from 'cors';
 
 
 import { currentUserRouter } from "./routes/current-user";
@@ -15,6 +16,7 @@ import { NotFoundError } from "./errors/not-found-error";
 const app = express();
 app.set("trust proxy", true);
 app.use(json());
+app.use(cors());
 // 测试环境关闭secure
 app.use(cookieSession({ signed: false, secure: false }));
 
