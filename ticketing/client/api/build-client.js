@@ -5,12 +5,13 @@ export default ({ req }) => {
         // server
         console.log('后端服务请求');
         return axios.create({
-            baseURL: 'https://tmnpma-dnrlyt-4000.preview.myide.io/'
+            baseURL: 'http://localhost:4000/',
+            headers: req.headers
         });
     } else {
         // browser
         return axios.create({
-            baseURL: '/'
+            baseURL: 'http://localhost:4000/'
         })
     }
 }

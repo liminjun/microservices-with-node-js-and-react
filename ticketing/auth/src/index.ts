@@ -4,7 +4,7 @@ import { app } from "./app";
 const start = async () => {
   try {
     // 连在线上的mongoDB
-    await mongoose.connect("mongodb+srv://liminjun:rSNpVRz0urGa1kSB@cluster0.3bymtih.mongodb.net/auth?retryWrites=true&w=majority", {
+    await mongoose.connect("mongodb://liminjun:rSNpVRz0urGa1kSB@cluster0.3bymtih.mongodb.net/auth?retryWrites=true&w=majority", {
     });
     console.log("Connected to MongoDB");
   } catch (err) {

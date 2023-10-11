@@ -9,23 +9,8 @@ const LandingPage = ({ currentUser }) => {
 LandingPage.getInitialProps = async context => {
 
     console.log('I am on the server.');
-    
-    // if (typeof window === 'undefined') {
-    //     // server 
-    //     const response  = await axios.get('http://ingress-nginx.ingress-nginx.svc.cluster.local/api/users/currentuser').catch((err) => {
-    //         console.log(err.message);
-    //     });
-    //     return response.data;
-    // } else {
-    //     // browser
-    //     const { data } = await axios.get('/api/users/currentuser', {
-    //         headers: req.headers
-    //     }).catch((err) => {
-    //         console.log(err.message);
-    //     });
-    //     return data;
-    // }
-    const { data } = await buildClient(context).get('/api/users/currentuser');
+    const client = buildClient(context);
+    const { data } = await client.get('/api/users/currentuser');
     return data;
 };
 
