@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
 import { app } from "./app";
-
+require("dotenv").config();
 const start = async () => {
   try {
     // 连在线上的mongoDB
-    await mongoose.connect("mongodb://liminjun:rSNpVRz0urGa1kSB@cluster0.3bymtih.mongodb.net/auth?retryWrites=true&w=majority", {
+    await mongoose.connect("mongodb://127.0.0.1:27017/auth", {
     });
     console.log("Connected to MongoDB");
   } catch (err) {

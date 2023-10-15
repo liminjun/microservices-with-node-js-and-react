@@ -1,17 +1,19 @@
 import axios from 'axios';
 
+
 export default ({ req }) => {
     if (typeof window === 'undefined') {
-        // server
-        console.log('后端服务请求');
+        // We are on the server
+        console.log('服务端渲染')
         return axios.create({
-            baseURL: 'http://localhost:4000/',
-            headers: req.headers
+          baseURL:'http://localhost:3000/auth-api',
+          headers: req.headers,
         });
-    } else {
-        // browser
+      } else {
+        console.log('浏览器端渲染')
+        // We must be on the browser
         return axios.create({
-            baseURL: 'http://localhost:4000/'
-        })
-    }
+          baseURL: 'http://localhost:3000/auth-api',
+        });
+      }
 }

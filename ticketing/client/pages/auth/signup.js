@@ -8,7 +8,7 @@ export default () => {
     const [password,setPassword]  = useState('');
 
     const { doRequest, errors } = useRequest({
-        url: 'https://tmnpma-dnrlyt-4000.preview.myide.io/api/users/signup',
+        url: 'http://localhost:3000/auth-api/api/users/signup',
         method: 'post',
         body: {
             email, password
@@ -25,7 +25,7 @@ export default () => {
 
         console.log(email, password);
         // try {
-        //     const response = await axios.post('https://tmnpma-dnrlyt-4000.preview.myide.io/api/users/signup', {
+        //     const response = await axios.post('http://localhost:4000/api/users/signup', {
         //     email, password
         // });
         // console.log(response.data)

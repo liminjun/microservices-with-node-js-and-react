@@ -12,7 +12,9 @@ const AppComponent = ({ Component, pageProps, currentUser }) => {
 
 AppComponent.getInitialProps = async (appContext) => {
     const client = buildClient(appContext.ctx);
+   console.log('运行中')
     const { data } = await client.get('/api/users/currentuser');
+    debugger;
     let pageProps = {};
     if (appContext.Component.getInitialProps) {
         pageProps = await appContext.Component.getInitialProps(appContext.ctx);

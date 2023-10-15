@@ -14,9 +14,10 @@ import { errorHandler } from "./middlewares/error-handler";
 import { NotFoundError } from "./errors/not-found-error";
 
 const app = express();
-app.set("trust proxy", true);
+app.set("trust proxy", 1);
 app.use(json());
-app.use(cors());
+const corsParams = { origin: 'http://localhost:3000', credentials: true };
+app.use(cors(corsParams));
 // 测试环境关闭secure
 app.use(cookieSession({ signed: false, secure: false }));
 

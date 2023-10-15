@@ -8,12 +8,13 @@ export default () => {
     const [password,setPassword]  = useState('');
 
     const { doRequest, errors } = useRequest({
-        url: 'https://tmnpma-dnrlyt-4000.preview.myide.io/api/users/signup',
+        url: 'http://localhost:3000/auth-api/api/users/signin',
         method: 'post',
         body: {
             email, password
         },
-        onSuccess: () => {
+        onSuccess: (response) => {
+            console.log(response);
             Router.push('/');
         }
     })
@@ -25,7 +26,7 @@ export default () => {
 
         console.log(email, password);
         // try {
-        //     const response = await axios.post('https://tmnpma-dnrlyt-4000.preview.myide.io/api/users/signup', {
+        //     const response = await axios.post('http://localhost:4000/api/users/signup', {
         //     email, password
         // });
         // console.log(response.data)
@@ -38,7 +39,7 @@ export default () => {
 
     return (
         <form onSubmit={onSubmit}>
-            <h1>注册</h1>
+            <h1>登录</h1>
             <div className="form-group">
                 <label>邮箱:</label>
                 <input value={email} onChange={e=>setEmail(e.target.value)} className="form-control" />
@@ -48,7 +49,7 @@ export default () => {
                 <input value={password} onChange={e => setPassword(e.target.value)} type="password" className="form-control" />
             </div>
             { errors }
-            <button type="submit" className="btn btn-primary">注册</button>
+            <button type="submit" className="btn btn-primary">登录</button>
         </form>
     )
 };
