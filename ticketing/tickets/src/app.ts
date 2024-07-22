@@ -13,6 +13,9 @@ import { signoutRouter } from "./routes/signout";
 import { errorHandler } from "./middlewares/error-handler";
 import { NotFoundError } from "./errors/not-found-error";
 
+import { showTicketRouter } from "./routes/show";
+import { indexTicketRouter } from "./routes/index";
+import { updateTicketRouter } from "./routes/update";
 const app = express();
 app.set("trust proxy", 1);
 app.use(json());
@@ -26,9 +29,16 @@ app.use(signinRouter);
 app.use(signupRouter);
 app.use(signoutRouter);
 
+app.use(showTicketRouter);
+app.use(indexTicketRouter);
+app.use(updateTicketRouter);
+
+
+
 app.all("*", async (req, res, next) => {
   next(new NotFoundError());
 });
 app.use(errorHandler);
+
 
 export { app };
